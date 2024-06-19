@@ -3,13 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import apiInstance from '../../utils/apiRequest';
 
 import './Home.scss';
-// import Dashboard from '../Dashboard/Dashboard';
 import Wrangler from '../../components/Wrangler/Wrangler';
 
 function Home() {
 
   const [username, setUsername] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //so user only logins once
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const [historyArray, setHistoryArray] = useState(null);
   console.log(isLoggedIn);
   
