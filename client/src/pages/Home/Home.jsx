@@ -1,57 +1,65 @@
-import React,{ useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import apiInstance from '../../utils/apiRequest';
 
 import './Home.scss'
-import Dashboard from '../Dashboard/Dashboard';
+// import Dashboard from '../Dashboard/Dashboard.jsx';
 
 function Home() {
-  const [username, setUsername] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //so user only logins once 
-  const [waterConsumed, setWaterConsumed] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-  const [comments, setComments] = useState('');
-
-  useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-      setUsername(storedUsername);
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const [username, setUsername] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); //so user only logins once
+  const [historyArray, setHistoryArray] = useState(null);
   
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username) {
-      localStorage.setItem('username', username);
+    const usernameValue = e.target.username.value;
+    if (usernameValue) {
+      setUsername(usernameValue);
       setIsLoggedIn(true);
     } else{
       alert('Please enter a username')
     }
   };
 
+  const getHistory = async (username) => {
+    const response = await apiInstance.getHistory(username);
+    setHistoryArray(response);
+    setIsLoggedIn(false);
+    console.log('api request sent')
+  }
+
   useEffect(() => {
-    const storedWaterConsumed = localStorage.getItem('waterConsumed');
-    if (storedWaterConsumed) {
-      setWaterConsumed(parseInt(storedWaterConsumed, 1));
+    if (username) {
+      getHistory(username);
+      console.log(username);
     }
-  }, []);
+  }, [username]);
 
-  const handleWaterSubmission = (e) => {
-    e.preventDefault();
-    setShowResult(true);
-    const waterConsumedToday = parseInt(waterConsumed, 1);
+  if (historyArray) {
+    console.log(historyArray);
+  }
 
-    localStorage.setItem('waterConsumed', waterConsumed);
-    setWaterConsumed(0);
-    setComments('');
-  };
+  // const handleWaterSubmission = (e) => {
+  //   e.preventDefault();
+  //   setShowResult(true);
+  //   const waterConsumedToday = parseInt(waterConsumed, 1);
+
+  //   localStorage.setItem('waterConsumed', waterConsumed);
+  //   setWaterConsumed(0);
+  //   setComments('');
+  // };
 
   return (
     <>
       <header>
         <form onSubmit={handleLogin}>
-          <label>Username: </label>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-          <br></br>
+          <label htmlFor="username-field">Username: </label>
+          <input
+            type="text"
+            name="username"
+            id="username-field"
+            placeholder="Enter your username"
+            defaultValue={localStorage.getItem('username') || 'Enter your username'}
+          />
           <button type="submit">Login</button>
         </form>
       </header>

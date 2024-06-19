@@ -32,9 +32,9 @@ export class TrackingApi {
     }
   }
   
-  async getVideosArray() {
-    const videosArray = await this.get('videos');
-    return videosArray;
+  async getHistory(username) {
+    const data = await this.get(`history/${username}`);
+    return data;
   }
 
   
@@ -50,9 +50,9 @@ export class TrackingApi {
     }
   }
   
-  async postComment(commentObject, videoId) {
-    const endpoint = `videos/${videoId}/comments`;
-    const response = await this.post(endpoint, commentObject);
+  async postActivity(activityObject, username) {
+    const endpoint = `history/${username}`;
+    const response = await this.post(endpoint, activityObject);
     return response;
   }
 }
