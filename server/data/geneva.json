@@ -1,0 +1,20 @@
+[
+  {
+    "metric": "cups of water",
+    "value": 2,
+    "timestamp": 1718817621730,
+    "comments": "First thing upon wakeup"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "timestamp": 1718817669482,
+    "comments": ""
+  },
+  {
+    "metric": "cups of water",
+    "value": 2,
+    "timestamp": 1718817734213,
+    "comments": "Mixed with 1 scoop of creatine"
+  }
+]

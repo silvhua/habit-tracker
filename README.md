@@ -1,8 +1,51 @@
-# React + Vite
+# Water Tracking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Individual user history
 
-Currently, two official plugins are available:
+## Back end
+* JSON file per user with array of objects. Each object has these properties:
+  * timestamp
+  * metric: glasses of water
+  * value
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### API response body:
+
+```json
+[
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "timestamp": 1718817621730,
+    "comments": "Coffee with milk"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "timestamp": 1718817669482,
+    "comments": "Chugged it"
+  },
+  {
+    "metric": "cups of water",
+    "value": 2,
+    "timestamp": 1718817734213,
+    "comments": "Very thirsty"
+  }
+]
+```
+
+## Front end
+* Login with username (text input)
+* Form to enter:
+  * Cups of water (number input)
+  * Comments
+* You have consumed __ cups of water today (update per day);
+
+### API request body
+```javascript
+  {
+    "metric": "cups of water",
+    "value": {number},
+    "comments": {string}
+  }
+```
