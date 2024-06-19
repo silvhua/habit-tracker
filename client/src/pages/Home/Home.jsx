@@ -72,9 +72,6 @@ function Home() {
           </form>
         }
       </header>
-      {isLoggedIn && (
-        <Dashboard/>
-      )}
     </>
   )
 }

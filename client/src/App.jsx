@@ -11,10 +11,6 @@ function App() {
           path="/" 
           element={<Home />} 
         />
-        <Route
-          path="/dashboard/:username"
-          element={<Dashboard />}
-        />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
