@@ -1,6 +1,7 @@
 import './Dashboard.scss';
+import Dataviz from '../../components/DataViz/DataViz';
 
-const Dashboard = () => {
+const Dashboard = ({ handleWaterSubmission, waterConsumed, setWaterConsumed, comments, setComments, showResult }) => {
   return (
     <>
     <div>
@@ -14,7 +15,12 @@ const Dashboard = () => {
         <br />
         <button type="submit">Submit</button>
       </form>
-      {showResult && <p>You have consumed {waterConsumed} glasses of water today.</p>}
+      {showResult && (
+        <>
+      <p>You have consumed {waterConsumed} glasses of water today.</p>
+      <Dataviz waterConsumed={waterConsumed} />
+      </>
+    )}
     </div>
     </>
   )
