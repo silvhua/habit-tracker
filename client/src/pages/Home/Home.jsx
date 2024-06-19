@@ -53,6 +53,10 @@ function Home() {
   return (
     <>
       <header>
+        <h1 className="question-header">Did you drink enough water today?</h1>
+        <p className = "home-subheader">Let's Find Out! </p>
+      </header>
+      <div className="home-container">
         {historyArray ?
           <Wrangler
             username={username}
@@ -71,7 +75,7 @@ function Home() {
             <button type="submit">Login</button>
           </form>
         }
-      </header>
+      </div>
     </>
   )
 }
