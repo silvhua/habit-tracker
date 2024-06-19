@@ -1,0 +1,41 @@
+[
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "timestamp": 1718817621730,
+    "comments": "Coffee with milk"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "timestamp": 1718817669482,
+    "comments": "Chugged it"
+  },
+  {
+    "metric": "cups of water",
+    "value": 2,
+    "timestamp": 1718817734213,
+    "comments": "Very thirsty"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "comments": "feeling good",
+    "timestamp": 1718820359475,
+    "id": "32687bbb-c57a-4639-9fa6-71d2ec2eface"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "comments": "test",
+    "timestamp": 1718833275500,
+    "id": "2dd67e40-cbc5-4f31-a9c8-7e17ad20aab2"
+  },
+  {
+    "metric": "cups of water",
+    "value": 2,
+    "comments": "class demo",
+    "timestamp": 1718835010184,
+    "id": "26422b10-db1b-4377-bc8b-a9f32be938df"
+  }
+]
