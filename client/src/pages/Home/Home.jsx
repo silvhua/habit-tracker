@@ -1,39 +1,44 @@
-import React,{ useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import apiInstance from '../../utils/apiRequest';
 
-import './Home.scss'
-import Dashboard from '../Dashboard/Dashboard';
+import './Home.scss';
+// import Dashboard from '../Dashboard/Dashboard';
+import Wrangler from '../../components/Wrangler/Wrangler';
 
 function Home() {
-  const [username, setUsername] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //so user only logins once 
-  const [waterConsumed, setWaterConsumed] = useState(0);
-  const [showResult, setShowResult] = useState(false);
-  const [comments, setComments] = useState('');
 
-  useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-      setUsername(storedUsername);
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const [username, setUsername] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); //so user only logins once
+  const [historyArray, setHistoryArray] = useState(null);
+  console.log(isLoggedIn);
   
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username) {
-      localStorage.setItem('username', username);
+    const usernameValue = e.target.username.value;
+    if (usernameValue) {
+      setUsername(usernameValue);
       setIsLoggedIn(true);
     } else{
       alert('Please enter a username')
     }
   };
 
+  const getHistory = async (username) => {
+    const response = await apiInstance.getHistory(username);
+    setHistoryArray(response);
+    console.log('api request sent');
+  }
+
   useEffect(() => {
-    const storedWaterConsumed = localStorage.getItem('waterConsumed');
-    if (storedWaterConsumed) {
-      setWaterConsumed(parseInt(storedWaterConsumed, 1));
+    if (username) {
+      getHistory(username);
     }
-  }, []);
+  }, [username]);
+
+  if (historyArray) {
+    console.log(`Navigating to dashboard for ${username}`);
+  }
 
   const handleWaterSubmission = (e) => {
     e.preventDefault();
@@ -48,12 +53,24 @@ function Home() {
   return (
     <>
       <header>
-        <form onSubmit={handleLogin}>
-          <label>Username: </label>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-          <br></br>
-          <button type="submit">Login</button>
-        </form>
+        {historyArray ?
+          <Wrangler
+            username={username}
+            historyArray={historyArray}
+          />
+          :
+          <form onSubmit={handleLogin}>
+            <label htmlFor="username-field">Username: </label>
+            <input
+              type="text"
+              name="username"
+              id="username-field"
+              placeholder="Enter your username"
+              defaultValue={localStorage.getItem('username') || 'Enter your username'}
+            />
+            <button type="submit">Login</button>
+          </form>
+        }
       </header>
       {isLoggedIn && (
         <Dashboard/>
