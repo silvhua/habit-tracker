@@ -47,9 +47,14 @@ function Home() {
 
   return (
     <>
+   <div className ="home-container">
+      <h1 className="question-header">Did you drink enough water today?</h1>
+      <p className = "home-subheader">Let's Find Out! </p>
+    </div>
       <header>
         <form onSubmit={handleLogin}>
-          <label>Username: </label>
+          <label> Username: </label>
+          <br></br>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
           <br></br>
           <button type="submit">Login</button>
