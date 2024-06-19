@@ -12,7 +12,7 @@ function App() {
           element={<Home />} 
         />
         <Route
-          path="/:username"
+          path="/dashboard/:username"
           element={<Dashboard />}
         />
         <Route path="*" element={<Home />} />
