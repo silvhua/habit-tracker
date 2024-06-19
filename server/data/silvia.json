@@ -16,5 +16,12 @@
     "value": 2,
     "timestamp": 1718817734213,
     "comments": "Very thirsty"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "comments": "feeling good",
+    "timestamp": 1718820359475,
+    "id": "32687bbb-c57a-4639-9fa6-71d2ec2eface"
   }
 ]
