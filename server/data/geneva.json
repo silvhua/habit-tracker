@@ -1,20 +1,20 @@
 [
   {
     "metric": "cups of water",
-    "value": 1,
+    "value": 2,
     "timestamp": 1718817621730,
-    "comments": "Coffee with milk"
+    "comments": "First thing upon wakeup"
   },
   {
     "metric": "cups of water",
     "value": 1,
     "timestamp": 1718817669482,
-    "comments": "Chugged it"
+    "comments": ""
   },
   {
     "metric": "cups of water",
     "value": 2,
     "timestamp": 1718817734213,
-    "comments": "Very thirsty"
+    "comments": "Mixed with 1 scoop of creatine"
   }
 ]
