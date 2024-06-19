@@ -23,5 +23,19 @@
     "comments": "feeling good",
     "timestamp": 1718820359475,
     "id": "32687bbb-c57a-4639-9fa6-71d2ec2eface"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "comments": "test",
+    "timestamp": 1718833275500,
+    "id": "2dd67e40-cbc5-4f31-a9c8-7e17ad20aab2"
+  },
+  {
+    "metric": "cups of water",
+    "value": 2,
+    "comments": "class demo",
+    "timestamp": 1718835010184,
+    "id": "26422b10-db1b-4377-bc8b-a9f32be938df"
   }
 ]

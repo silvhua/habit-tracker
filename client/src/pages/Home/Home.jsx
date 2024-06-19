@@ -3,13 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import apiInstance from '../../utils/apiRequest';
 
 import './Home.scss';
-// import Dashboard from '../Dashboard/Dashboard';
 import Wrangler from '../../components/Wrangler/Wrangler';
 
 function Home() {
 
   const [username, setUsername] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); //so user only logins once
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
   const [historyArray, setHistoryArray] = useState(null);
   console.log(isLoggedIn);
   
@@ -53,6 +52,10 @@ function Home() {
   return (
     <>
       <header>
+        <h1 className="question-header">Did you drink enough water today?</h1>
+        <p className = "home-subheader">Let's Find Out! </p>
+      </header>
+      <div className="home-container">
         {historyArray ?
           <Wrangler
             username={username}
@@ -71,10 +74,7 @@ function Home() {
             <button type="submit">Login</button>
           </form>
         }
-      </header>
-      {isLoggedIn && (
-        <Dashboard/>
-      )}
+      </div>
     </>
   )
 }

@@ -16,5 +16,12 @@
     "value": 2,
     "timestamp": 1718817734213,
     "comments": "Mixed with 1 scoop of creatine"
+  },
+  {
+    "metric": "cups of water",
+    "value": 1,
+    "comments": "test",
+    "timestamp": 1718833625344,
+    "id": "b680cdec-6ced-42a4-a884-895a59023292"
   }
 ]
